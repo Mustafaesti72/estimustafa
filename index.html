@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustafa Esti - Software Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M487.4 315.7l-42.9-24.8c2.9-14 2.9-28.3 0-42.3l42.9-24.8c7.2-4.1 10.2-12.9 7.5-20.7l-45.5-121.9c-2.7-7.2-9.7-11.9-17.4-11.9-5.1 0-10.1 1.5-14.3 4.5l-42.9 24.8c-11.1-9.4-23.4-17-36.4-22.7V24c0-8.3-6.7-15-15-15H168.7c-8.3 0-15 6.7-15 15v49.4c-13 5.7-25.3 13.3-36.4 22.7l-42.9-24.8C57.4 56.8 52.4 55.3 47.3 55.3c-7.7 0-14.7 4.6-17.4 11.9L0 188.9c-2.7 7.8.3 16.6 7.5 20.7l42.9 24.8c-2.9 14-2.9 28.3 0 42.3L7.5 301.5c-7.2 4.1-10.2 12.9-7.5 20.7l45.5 121.9c2.7 7.2 9.7 11.9 17.4 11.9 5.1 0 10.1-1.5 14.3-4.5l42.9-24.8c11.1 9.4 23.4 17 36.4 22.7V488c0 8.3 6.7 15 15 15h122.6c8.3 0 15-6.7 15-15v-49.4c13-5.7 25.3-13.3 36.4-22.7l42.9 24.8c4.2 2.4 9.1 3.6 14.1 3.6 4.3 0 8.6-1.1 12.4-3.4l45.5-121.9c2.7-7.8-.3-16.6-7.5-20.7zM256 346c-49.7 0-90-40.3-90-90s40.3-90 90-90 90 40.3 90 90-40.3 90-90 90z"></path></svg>'>
+  <style>
+    /* Reset & Base */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    :root { --primary:#2563eb; --secondary:#7c3aed; --accent:#10b981; --dark:#1e293b; --light:#f8fafc; --gray:#94a3b8; }
+    body { display:flex; min-height:100vh; background:#f1f5f9; color:var(--dark); line-height:1.6; }
+    /* Sidebar */
+    .sidebar { width:300px; background:linear-gradient(135deg,var(--primary),var(--secondary)); padding:2rem; color:white; display:flex; flex-direction:column; align-items:center; position:fixed; height:100vh; box-shadow:4px 0 20px rgba(0,0,0,0.1); }
+    .profile-img { width:150px; height:150px; border-radius:50%; object-fit:cover; border:5px solid white; margin-bottom:1.5rem; }
+    .name { font-size:1.8rem; font-weight:700; margin-bottom:.5rem; }
+    .title { font-size:1rem; color:rgba(255,255,255,0.8); margin-bottom:2rem; text-align:center; }
+    .nav-menu { list-style:none; width:100%; margin-top:2rem; padding:0; }
+    .nav-menu li { margin-bottom:1rem; }
+    .nav-menu a { text-decoration:none; color:white; font-weight:500; display:flex; align-items:center; padding:.8rem 1rem; border-radius:8px; transition:.3s; }
+    .nav-menu a i { margin-right:10px; }
+    .nav-menu a:hover, .nav-menu a.active { background:rgba(255,255,255,0.1); transform:translateX(5px); }
+    .contact-info { margin-top:auto; width:100%; }
+    .contact-item { display:flex; align-items:center; margin-bottom:1rem; color:white; }
+    .contact-item i { margin-right:10px; }
+    .social-links { display:flex; gap:1rem; justify-content:center; }
+    /* Main Content */
+    .main-content { margin-left:300px; flex:1; padding:4rem; }
+    .section { padding:3rem 0; }
+    .section-header { position:relative; margin-bottom:2rem; }
+    .section-header h1 { font-size:2.5rem; font-weight:800; display:inline-block; }
+    .section-header h1:after { content:''; position:absolute; bottom:-10px; left:0; width:60px; height:4px; background:linear-gradient(90deg,var(--primary),var(--accent)); border-radius:2px; }
+    /* Timeline */
+    .timeline { position:relative; max-width:800px; }
+    .timeline:before { content:''; position:absolute; top:0; left:15px; width:2px; height:100%; background:var(--gray); opacity:.3; }
+    .timeline-item { position:relative; padding-left:50px; margin-bottom:2.5rem; }
+    .timeline-dot { position:absolute; left:8px; top:0; width:16px; height:16px; background:linear-gradient(135deg,var(--primary),var(--secondary)); border-radius:50%; border:3px solid white; }
+    .timeline-date { font-size:.9rem; color:var(--gray); margin-bottom:.5rem; font-weight:500; }
+    .timeline-title { font-size:1.3rem; font-weight:700; }
+    .timeline-company { display:inline-block; background:var(--accent); color:white; padding:.2rem .6rem; border-radius:20px; font-size:.8rem; margin-bottom:.5rem; }
+    .timeline-text { color:#64748b; line-height:1.6; }
+    /* Skills */
+    .skills-container { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:1.5rem; }
+    .skill-category { background:white; padding:1.5rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.05); }
+    .skill-category h3 { font-size:1.2rem; margin-bottom:1rem; color:var(--primary); display:flex; align-items:center; }
+    .skill-list { list-style:none; padding:0; }
+    .skill-list li { margin-bottom:.5rem; padding-left:20px; position:relative; }
+    .skill-list li:before { content:'•'; position:absolute; left:0; color:var(--accent); }
+    /* Projects */
+    .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(350px,1fr)); gap:2rem; }
+    .project-card { background:white; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.05); overflow:hidden; }
+    .project-header { padding:1rem; border-bottom:1px solid #e2e8f0; }
+    .project-title { font-size:1.3rem; font-weight:700; margin-bottom:.3rem; }
+    .project-company { font-size:.9rem; color:var(--gray); margin-bottom:.8rem; }
+    .project-body { padding:1rem; }
+    .project-description { margin-bottom:1rem; color:#64748b; line-height:1.6; }
+    .project-tech { display:flex; flex-wrap:wrap; gap:.5rem; }
+    .tech-tag { background:#e2e8f0; padding:.3rem .6rem; border-radius:20px; font-size:.8rem; color:var(--dark); }
+    /* Education */
+    .edu-list { margin-top:1rem; }
+    .edu-item { margin-bottom:1rem; }
+    .edu-item h3 { font-size:1.2rem; font-weight:600; }
+    .edu-item span { display:block; color:var(--gray); font-size:.9rem; }
+    /* Awards */
+	.section { /* … */ }
+.section-header h1 { /* … */ }
+.awards-grid { display: grid; gap: 1rem; /* … */ }
+.award-card { display: flex; align-items: center; gap: .5rem; /* … */ }
+.award-icon { font-size: 1.5rem; color: var(--primary); }
+.award-text { font-size: .9rem; color: var(--dark); }
+    .awards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; margin-top:1rem; }
+    .award-card { background:white; padding:1rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.05); display:flex; align-items:center; gap:.5rem; }
+    .award-icon { font-size:1.5rem; color:var(--primary); }
+    .award-text { font-size:.9rem; color:var(--dark); }
+    /* Languages */
+    .languages-list { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
+    .language-item { background:white; padding:.8rem 1rem; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.05); display:flex; align-items:center; gap:.5rem; }
+    .language-flag { width:24px; height:16px; border-radius:2px; }
+    /* Responsive */
+    @media (max-width:992px) { body{flex-direction:column;} .sidebar{width:100%;position:relative;flex-wrap:wrap;height:auto;} .main-content{margin-left:0;padding:2rem;} }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="MustafaEsti.jpg" alt="Mustafa Esti" class="profile-img">
+    <h1 class="name">Mustafa Esti</h1>
+    <p class="title">Full-Stack Engineer (.NET & Node.js)</p>
+    <ul class="nav-menu">
+      <li><a href="#about" class="active"><i class="fas fa-user"></i>About</a></li>
+      <li><a href="#experience"><i class="fas fa-briefcase"></i>Experience</a></li>
+      <li><a href="#skills"><i class="fas fa-laptop-code"></i>Skills</a></li>
+      <li><a href="#projects"><i class="fas fa-project-diagram"></i>Projects</a></li>
+      <li><a href="#education"><i class="fas fa-graduation-cap"></i>Education</a></li>
+      <li><a href="#awards"><i class="fas fa-trophy"></i>Awards</a></li>
+      <li><a href="#languages"><i class="fas fa-language"></i>Languages</a></li>
+    </ul>
+    <div class="contact-info">
+      <div class="contact-item"><i class="fas fa-envelope"></i><span>mustafaesti72@gmail.com</span></div>
+      <div class="contact-item"><i class="fas fa-phone"></i><span>+389 70 834 184</span></div>
+      <div class="social-links">
+        <a href="https://github.com/mustafaesti" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/mustafa-esti/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </aside>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="section-header"><h1>About Me</h1></div>
+      <p>Software engineer with 6+ years building scalable applications using .NET Core, Node.js, and React. Experienced in microservices, serverless functions, and real-time systems.</p>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="section-header"><h1>Experience</h1></div>
+      <div class="timeline">
+        <!-- .NET Core focused -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Mar 2024 – Present</div>
+          <h3 class="timeline-title">Backend Engineer</h3>
+          <span class="timeline-company">Sedgwick (Inspire11)</span>
+          <p class="timeline-text">Designed and developed microservices in <strong>.NET Core</strong> using Entity Framework Core, SQL Server, and Azure Functions. Implemented RESTful APIs and automated CI/CD pipelines.</p>
+        </div>
+        <!-- Node.js focused -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Feb 2023 – Jan 2024</div>
+          <h3 class="timeline-title">Full-Stack Developer</h3>
+          <span class="timeline-company">Savvy Global (MusalaSoft)</span>
+          <p class="timeline-text">Built front-ends with React & Next.js and back-ends using <strong>Node.js</strong> (Express.js). Integrated MongoDB, implemented JWT auth, and wrote end-to-end tests with Jest.</p>
+        </div>
+        <!-- Node.js focused -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Mar 2022 – Jan 2023</div>
+          <h3 class="timeline-title">Serverless Developer</h3>
+          <span class="timeline-company">Pictor (Technoperia)</span>
+          <p class="timeline-text">Implemented AWS Lambda functions in <strong>Node.js</strong> for image processing, integrated Stripe payments, and managed S3 storage with serverless framework.</p>
+        </div>
+        <!-- .NET Core focused -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2019 – 2022</div>
+          <h3 class="timeline-title">API Developer</h3>
+          <span class="timeline-company">Bus2Go.mk (Technoperia)</span>
+          <p class="timeline-text">Led API development in <strong>.NET Core</strong> with SignalR for real-time features. Designed EF Core data models, PostgreSQL schemas, and secured endpoints with OAuth2.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="section-header"><h1>Skills</h1></div>
+      <div class="skills-container">
+        <div class="skill-category"><h3><i class="fas fa-server"></i>Backend</h3><ul class="skill-list"><li>.NET Core & ASP.NET Core</li><li>Node.js & Express.js</li><li>Entity Framework & Sequelize</li><li>MongoDB & PostgreSQL</li><li>REST & GraphQL APIs</li><li>Redis & RabbitMQ</li></ul></div>
+        <div class="skill-category"><h3><i class="fas fa-laptop-code"></i>Frontend</h3><ul class="skill-list"><li>React & Next.js</li><li>Redux Toolkit</li><li>HTML5 & CSS3</li><li>Tailwind CSS</li></ul></div>
+        <div class="skill-category"><h3><i class="fas fa-vial"></i>Testing</h3><ul class="skill-list"><li>xUnit & NUnit</li><li>Jest & Mocha</li><li>Supertest & FluentAssertions</li></ul></div>
+        <div class="skill-category"><h3><i class="fas fa-cloud"></i>DevOps</h3><ul class="skill-list"><li>Docker & Kubernetes</li><li>Azure DevOps & GitHub Actions</li><li>AWS & Azure Serverless</li></ul></div>
+      </div>
+    </section>
+     <section id="projects" class="section">
+      <div class="section-header"><h1>Projects</h1></div>
+      <div class="projects-grid">
+        <!-- .NET Core project -->
+        <div class="project-card">
+          <div class="project-header"><h3 class="project-title">Claims Microservices</h3><p class="project-company">Sedgwick</p></div>
+          <div class="project-body">
+            <p class="project-description">Architected microservices in <strong>.NET Core</strong> with ASP.NET Core, EF Core, SQL Server, and Azure Service Bus. Exposed REST APIs and deployed via Docker.</p>
+            <div class="project-tech"><span class="tech-tag">.NET Core</span><span class="tech-tag">SQL Server</span><span class="tech-tag">Azure</span></div>
+          </div>
+        </div>
+        <!-- Node.js project -->
+        <div class="project-card">
+          <div class="project-header"><h3 class="project-title">Analytics Dashboard</h3><p class="project-company">Savvy Global</p></div>
+          <div class="project-body">
+            <p class="project-description">Developed a real-time dashboard with React and <strong>Node.js</strong> (Express) backend, integrated with MongoDB and WebSocket for live updates.</p>
+            <div class="project-tech"><span class="tech-tag">Node.js</span><span class="tech-tag">MongoDB</span><span class="tech-tag">React</span></div>
+          </div>
+        </div>
+        <!-- Node.js project -->
+        <div class="project-card">
+          <div class="project-header"><h3 class="project-title">Serverless Image Service</h3><p class="project-company">Pictor</p></div>
+          <div class="project-body">
+            <p class="project-description">Built AWS Lambda functions in <strong>Node.js</strong> for on-the-fly image resizing and storage, with S3, API Gateway, and Stripe payment integration.</p>
+            <div class="project-tech"><span class="tech-tag">AWS Lambda</span><span class="tech-tag">Node.js</span><span class="tech-tag">S3</span></div>
+          </div>
+        </div>
+        <!-- .NET Core project -->
+        <div class="project-card">
+          <div class="project-header"><h3 class="project-title">Real-Time Ticketing</h3><p class="project-company">Bus2Go.mk</p></div>
+          <div class="project-body">
+            <p class="project-description">Created APIs in <strong>.NET Core</strong> with SignalR for seat booking, EF Core code-first migrations, and PostgreSQL for data persistence.</p>
+            <div class="project-tech"><span class="tech-tag">ASP.NET Core</span><span class="tech-tag">SignalR</span><span class="tech-tag">PostgreSQL</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <div class="section-header"><h1>Education</h1></div>
+      <div class="edu-list"><div class="edu-item"><h3>Marmara University</h3><span>B.Sc. Computer Engineering (Honors)</span></div><div class="edu-item"><h3>Balkan University</h3><span>Student Assistant, Computer Engineering</span></div></div>
+    </section>
+  <!-- Awards & Achievements Section -->
+<section id="awards" class="section">
+  <div class="section-header">
+    <h1>Awards & Achievements</h1>
+  </div>
+  <div class="awards-grid">
+    <div class="award-card">
+      <i class="award-icon fas fa-medal"></i>
+      <div class="award-text">AgencyTicket.com: Best Startup of Macedonia 2024</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-rocket"></i>
+      <div class="award-text">NASA Space Apps Challenge (Hackathon) – 2nd Place</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-award"></i>
+      <div class="award-text">Uplift Albania (Startup Competition) – 3rd Place</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-lightbulb"></i>
+      <div class="award-text">Ideja Marathon Istanbul (Hackathon) – 3rd Place</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-robot"></i>
+      <div class="award-text">RoboMac – 2nd Place</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-globe"></i>
+      <div class="award-text">Galactic Problem Solver, NASA</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-space-shuttle"></i>
+      <div class="award-text">NASA Space Apps Challenge (Hackathon) – 3rd Place</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-superscript"></i>
+      <div class="award-text">Kengur (Math Competition) – Bronze Medal</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-calculator"></i>
+      <div class="award-text">3× Mathematics Without Borders: Bronze, Bronze, Gold</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-trophy"></i>
+      <div class="award-text">4× Province Olympiad Elimination: Bronze, Bronze, Silver, Gold</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-award"></i>
+      <div class="award-text">4× Regional Olympiad Elimination: Bronze, Bronze, Silver, Silver</div>
+    </div>
+    <div class="award-card">
+      <i class="award-icon fas fa-medal"></i>
+      <div class="award-text">Republic Math Olympiad – Bronze Medal</div>
+    </div>
+  </div>
+</section>
+
+    <!-- Languages Section -->
+    <section id="languages" class="section">
+      <div class="section-header"><h1>Languages</h1></div>
+      <div class="languages-list"><div class="language-item"><img src="https://flagcdn.com/w20/mk.png" class="language-flag" alt="Macedonian"><span>Macedonian</span></div><div class="language-item"><img src="https://flagcdn.com/w20/gb.png" class="language-flag" alt="English"><span>English</span></div><div class="language-item"><img src="https://flagcdn.com/w20/tr.png" class="language-flag" alt="Turkish"><span>Turkish</span></div><div class="language-item"><img src="https://flagcdn.com/w20/al.png" class="language-flag" alt="Albanian"><span>Albanian</span></div></div>
+    </section>
+  </main>
+  <script>
+    // Smooth scrolling & Active link
+    document.querySelectorAll('.nav-menu a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'}); document.querySelectorAll('.nav-menu a').forEach(l=>l.classList.remove('active')); a.classList.add('active');}));
+    window.addEventListener('scroll',()=>{let current=''; document.querySelectorAll('.section').forEach(s=>{const top=s.offsetTop, h=s.clientHeight; if(scrollY>=top-h/3) current=s.getAttribute('id');}); document.querySelectorAll('.nav-menu a').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==`#${current}`));});
+  </script>
+</body>
+</html>
