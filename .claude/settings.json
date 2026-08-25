@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Read(//Applications/**)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --hide-scrollbars --virtual-time-budget=6000 --window-size=1440,2600 --screenshot=/tmp/pf-light.png \"file:///Users/mustafaesti/estimustafa/index.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --hide-scrollbars --blink-settings=preferredColorScheme=1 --virtual-time-budget=6000 --window-size=1440,9000 --screenshot=/tmp/pf-full-light.png \"file:///Users/mustafaesti/estimustafa/index.html\")",
+      "Bash(sips -g pixelHeight -g pixelWidth /tmp/pf-full-light.png)",
+      "Bash(sips -c 2600 1440 --cropOffset 2500 0 /tmp/pf-full-light.png --out /tmp/pf-mid-light.png)",
+      "Bash(sips -c 1900 1440 --cropOffset 5100 0 /tmp/pf-full-light.png --out /tmp/pf-bot-light.png)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --hide-scrollbars --blink-settings=preferredColorScheme=1 --virtual-time-budget=6000 --window-size=390,1900 --screenshot=/tmp/pf-mobile.png \"file:///Users/mustafaesti/estimustafa/index.html\")"
+    ]
+  }
+}
