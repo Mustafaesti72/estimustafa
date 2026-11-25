@@ -296,7 +296,9 @@
   });
 
   /* ---------- deneyim ---------- */
-  gsap.from(".xp-row", { y: 40, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.09, scrollTrigger: { trigger: ".xp-list", start: "top 82%" } });
+  $$(".xp-list").forEach(function (list) {
+    gsap.from($$(".xp-row", list), { y: 40, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.09, scrollTrigger: { trigger: list, start: "top 82%" } });
+  });
 
   /* ---------- hakkında ---------- */
   gsap.fromTo(".portrait", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 1.3, ease: "expo.inOut", scrollTrigger: { trigger: ".about", start: "top 75%" } });

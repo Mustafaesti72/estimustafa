@@ -239,3 +239,10 @@ main,.contact,.marquee{position:relative;z-index:1}
   .about-text p.lead .w{opacity:1}
   *{transition-duration:.01ms!important}
 }
+
+/* Diğer ürünler: deneyim satırlarıyla aynı düzen */
+.xp.more{padding-bottom:0}
+.xp-row .tech{text-align:right;white-space:nowrap;transition:color .3s}
+@media (max-width:900px){.xp-row .tech{grid-column:1/-1;text-align:left}}
+/* Hareket yokken (JS kapalı ya da hareket azaltma) yatay şerit elle kaydırılır */
+html:not(.js) .p-cliveo .h-wrap{overflow-x:auto}
