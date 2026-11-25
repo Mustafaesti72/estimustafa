@@ -28,6 +28,7 @@
 <link rel="preload" href="assets/img/hintvo-site.webp" as="image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c8f542'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='700' text-anchor='middle' fill='%230b0d06'%3EME%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/demos.css">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Mustafa Esti","jobTitle":"Senior Full Stack Developer","url":"https://mustafaesti72.github.io/estimustafa/","image":"https://mustafaesti72.github.io/estimustafa/MustafaEsti.jpg","email":"mailto:dev.mesti@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Skopje","addressCountry":"MK"},"sameAs":["https://www.linkedin.com/in/mustafa-esti/","https://github.com/Mustafaesti72"],"knowsAbout":["C#",".NET Core","TypeScript","Next.js","React","Angular","PostgreSQL","SQL Server","AWS","Azure","Electron"]}
@@ -36,13 +37,15 @@
 <body>
 <a class="skip" href="#work">Skip to content</a>
 
+<canvas class="field" aria-hidden="true"></canvas>
 <div class="loader" aria-hidden="true">
   <div class="loader-name">Mustafa Esti</div>
   <div class="loader-count">0</div>
 </div>
 <div class="grain" aria-hidden="true"></div>
-<div class="glow" aria-hidden="true"></div>
 <div class="progress" aria-hidden="true"></div>
+<div class="cur" aria-hidden="true"><span></span></div>
+<div class="hud mono" aria-hidden="true"><b>01</b><span>Hintvo</span><i>/ 03</i></div>
 
 <header class="nav">
   <a class="brand" href="#top">Mustafa Esti</a>
@@ -57,16 +60,23 @@
 <main id="top">
 
 <section class="hero">
-  <h1 aria-label="Full stack engineer. Product builder.">
-    <span class="line" aria-hidden="true"><span class="chars">Full stack engineer.</span></span>
-    <span class="line" aria-hidden="true"><span class="chars accent">Product builder.</span></span>
+  <p class="kicker mono"><i class="dot"></i>Open to remote work<span class="sep">/</span>Skopje <time class="clock">--:--</time></p>
+  <h1 aria-label="I take products from zero to live.">
+    <span class="line" aria-hidden="true"><span class="chars">I take products</span></span>
+    <span class="line" aria-hidden="true"><span class="chars accent">from zero to live.</span></span>
   </h1>
   <div class="hero-row">
     <div class="hero-copy">
-      <p>Seven years of .NET on insurance and payments platforms. I also design, build and run my own products: Hintvo, Cliveo and fiskalna.mk.</p>
+      <p>Mustafa Esti, senior full stack engineer. Seven years of .NET on insurance and payments platforms, and three products of my own that I designed, built and run.</p>
       <div class="hero-cta">
         <a class="btn btn-accent magnetic" href="#work">See the work <span class="arr" aria-hidden="true">↓</span></a>
+        <a class="btn magnetic" href="#contact">Get in touch</a>
       </div>
+      <ol class="hero-index mono">
+        <li><a href="#hintvo"><b>01</b>Hintvo</a></li>
+        <li><a href="#cliveo"><b>02</b>Cliveo</a></li>
+        <li><a href="#fiskalna"><b>03</b>fiskalna.mk</a></li>
+      </ol>
     </div>
     <div class="stack" aria-hidden="true">
       <div class="stack-in">
@@ -86,12 +96,15 @@
 
 <section class="intro" id="work">
   <h2 class="big scrub-words">Three products. Designed, built and run by one engineer.</h2>
+  <p class="intro-note mono scramble">The windows below are live. Click around.</p>
 </section>
 
 <!-- Hintvo -->
-<section class="product p-hintvo" data-tint="#07130d">
+<section class="product p-hintvo" id="hintvo" data-tint="#07130d" data-name="Hintvo" data-idx="01">
+  <div class="ghost" aria-hidden="true"><span>Hintvo Hintvo Hintvo Hintvo</span></div>
   <div class="p-pin">
     <div class="p-copy">
+      <span class="idx mono scramble">01 / Meeting assistant</span>
       <h3 class="p-name reveal-words">Hintvo</h3>
       <p class="p-tag">A meeting and interview assistant that answers from your own code.</p>
       <ul class="p-facts">
@@ -99,21 +112,45 @@
         <li><b>Platforms</b>Desktop app for Mac and Windows, plus a browser version for interviews.</li>
         <li><b>Built with</b>Electron, Swift audio capture, Next.js 16, PostgreSQL, Prisma.</li>
       </ul>
-      <a class="btn magnetic" href="https://hintvo.com" target="_blank" rel="noopener">Visit hintvo.com <span class="arr" aria-hidden="true">↗</span></a>
+      <a class="btn magnetic" href="https://hintvo.com" target="_blank" rel="noopener" data-cursor="Open">Visit hintvo.com <span class="arr" aria-hidden="true">↗</span></a>
     </div>
     <div class="p-stage">
-      <figure class="browser b-main"><div class="browser-bar"><i></i><i></i><i></i><span>hintvo.com</span></div><img src="assets/img/hintvo-site.webp" alt="Hintvo home page showing a live meeting with a question and the answer drawn from the user's code" width="1920" height="1200" loading="lazy"></figure>
-      <figure class="f-card"><img src="assets/img/hintvo-answer.webp" alt="Hintvo answer card with a suggested reply and source file" width="1301" height="712" loading="lazy"></figure>
-      <figure class="f-phone phone reel"><video muted loop playsinline preload="none" poster="assets/img/hintvo-moment.webp" src="assets/video/hintvo-moment.mp4" aria-label="Short clip of Hintvo answering a coding question"></video></figure>
+      <div class="win demo-h" data-cursor="Live">
+        <div class="win-bar"><i></i><i></i><i></i><span>Hintvo / Sprint planning</span><em class="live"><u></u>Listening</em></div>
+        <div class="dh-body">
+          <div class="dh-call">
+            <div class="dh-label mono">In the call</div>
+            <div class="dh-lines" aria-live="off"></div>
+            <div class="dh-wave" aria-hidden="true"></div>
+          </div>
+          <div class="dh-answer">
+            <div class="dh-idle mono">Waiting for a question</div>
+            <div class="dh-card">
+              <div class="dh-meta"><span class="mono dh-heard">Question</span><em class="dh-ms mono"></em></div>
+              <b class="dh-q"></b>
+              <div class="dh-scan mono"></div>
+              <p class="dh-text"></p>
+              <div class="dh-src"></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-foot"><span class="mono">Replay of the app's sample meeting. Answers are real output.</span><button class="chip dh-replay" type="button">Replay</button></div>
+      </div>
+      <figure class="f-phone phone reel" data-cursor="Watch"><video muted loop playsinline preload="none" poster="assets/img/hintvo-moment.webp" src="assets/video/hintvo-moment.mp4" aria-label="Short clip of Hintvo answering a coding question"></video></figure>
     </div>
+  </div>
+  <div class="shots">
+    <figure class="browser par" data-y="50"><div class="browser-bar"><i></i><i></i><i></i><span>hintvo.com</span></div><img src="assets/img/hintvo-site.webp" alt="Hintvo home page showing a live meeting with a question and the answer drawn from the user's code" width="1920" height="1200" loading="lazy"></figure>
+    <figure class="s-card par" data-y="-60"><img src="assets/img/hintvo-answer.webp" alt="Hintvo answer card with a suggested reply and source file" width="1301" height="712" loading="lazy"><figcaption class="mono">Screenshot question, answered in 2 seconds.</figcaption></figure>
   </div>
 </section>
 
 <!-- Cliveo -->
-<section class="product p-cliveo" data-tint="#0a0f14">
+<section class="product p-cliveo" id="cliveo" data-tint="#0a0f14" data-name="Cliveo" data-idx="02">
   <div class="h-wrap">
     <div class="h-track">
       <div class="h-copy p-copy">
+        <span class="idx mono scramble">02 / Video engine</span>
         <h3 class="p-name reveal-words">Cliveo</h3>
         <p class="p-tag">Describe your business once. Get every video it needs.</p>
         <ul class="p-facts">
@@ -121,11 +158,32 @@
           <li><b>Range</b>12 video types, 16 scene types, 3 formats, 7 languages.</li>
           <li><b>Built with</b>Next.js 16, a Playwright and ffmpeg frame renderer, a credit ledger, Paddle, Expo.</li>
         </ul>
-        <a class="btn magnetic" href="https://cliveo.app" target="_blank" rel="noopener">Visit cliveo.app <span class="arr" aria-hidden="true">↗</span></a>
+        <a class="btn magnetic" href="https://cliveo.app" target="_blank" rel="noopener" data-cursor="Open">Visit cliveo.app <span class="arr" aria-hidden="true">↗</span></a>
       </div>
-      <figure class="reel phone"><video muted loop playsinline preload="none" poster="assets/img/cliveo-trailer.webp" src="assets/video/cliveo-trailer.mp4" aria-label="Video rendered by Cliveo: trailer"></video></figure>
-      <figure class="reel phone"><video muted loop playsinline preload="none" poster="assets/img/cliveo-offer.webp" src="assets/video/cliveo-offer.mp4" aria-label="Video rendered by Cliveo: offer"></video></figure>
-      <figure class="reel phone"><video muted loop playsinline preload="none" poster="assets/img/cliveo-review.webp" src="assets/video/cliveo-review.mp4" aria-label="Video rendered by Cliveo: customer review"></video></figure>
+      <div class="win demo-c" data-cursor="Try">
+        <div class="win-bar"><i></i><i></i><i></i><span>Cliveo / Director</span><em class="live dc-state"><u></u>Idle</em></div>
+        <div class="dc-body">
+          <div class="dc-left">
+            <div class="dc-types" role="group" aria-label="Video type">
+              <button class="chip" type="button" data-v="offer">Offer</button>
+              <button class="chip" type="button" data-v="trailer">Trailer</button>
+              <button class="chip" type="button" data-v="review">Review</button>
+              <button class="chip" type="button" data-v="kinetic">Kinetic</button>
+            </div>
+            <div class="dc-brief"><span class="mono">Brief</span><p></p></div>
+            <ol class="dc-scenes"></ol>
+            <div class="dc-render"><div class="bar"><i></i></div><span class="mono"></span></div>
+          </div>
+          <div class="dc-phone phone reel">
+            <video muted loop playsinline preload="none" data-manual poster="assets/img/cliveo-offer.webp" src="assets/video/cliveo-offer.mp4" aria-label="Video rendered by Cliveo"></video>
+            <div class="dc-veil"><span class="mono">Rendering</span><b>0%</b></div>
+          </div>
+        </div>
+        <div class="demo-foot"><span class="mono">Pick a type. Every clip here was rendered by Cliveo.</span></div>
+      </div>
+      <figure class="reel phone" data-cursor="Watch"><video muted loop playsinline preload="none" poster="assets/img/cliveo-trailer.webp" src="assets/video/cliveo-trailer.mp4" aria-label="Video rendered by Cliveo: trailer"></video></figure>
+      <figure class="reel phone" data-cursor="Watch"><video muted loop playsinline preload="none" poster="assets/img/cliveo-review.webp" src="assets/video/cliveo-review.mp4" aria-label="Video rendered by Cliveo: customer review"></video></figure>
+      <figure class="reel phone" data-cursor="Watch"><video muted loop playsinline preload="none" poster="assets/img/cliveo-kinetic.webp" src="assets/video/cliveo-kinetic.mp4" aria-label="Video rendered by Cliveo: kinetic text"></video></figure>
       <figure class="h-shot"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>cliveo.app/studio</span></div><img src="assets/img/cliveo-studio.webp" alt="Cliveo Studio template picker with scene structure and credit cost per video" width="1984" height="1352" loading="lazy"></div><figcaption class="mono">Studio: pick a structure, the script and render follow.</figcaption></figure>
       <figure class="h-shot tall"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>cliveo.app/director</span></div><img src="assets/img/cliveo-director.webp" alt="Cliveo Director chat that proposes video ideas from company memory" width="1200" height="1382" loading="lazy"></div><figcaption class="mono">Director: a chat that knows the business.</figcaption></figure>
     </div>
@@ -133,18 +191,37 @@
 </section>
 
 <!-- fiskalna.mk -->
-<section class="product p-fisk" data-tint="#0a0b1a">
+<section class="product p-fisk" id="fiskalna" data-tint="#0a0b1a" data-name="fiskalna.mk" data-idx="03">
+  <div class="ghost" aria-hidden="true"><span>fiskalna.mk fiskalna.mk fiskalna.mk</span></div>
   <div class="f-head">
     <div class="p-copy">
+      <span class="idx mono scramble">03 / Point of sale</span>
       <h3 class="p-name reveal-words">fiskalna.mk</h3>
       <p class="p-tag">Point of sale and bookkeeping for shops in North Macedonia.</p>
-      <a class="btn magnetic" href="https://www.fiskalna.mk" target="_blank" rel="noopener">Visit fiskalna.mk <span class="arr" aria-hidden="true">↗</span></a>
+      <ul class="p-facts">
+        <li><b>What</b>Fast sales at the counter with barcode, shifts and Z reports. Invoices, stock and partners behind it.</li>
+        <li><b>Local</b>Fiscal printer support through a Windows desktop app, Macedonian interface, several branches.</li>
+        <li><b>Built with</b>Next.js 15, PostgreSQL, Prisma, NextAuth, Tauri.</li>
+      </ul>
+      <a class="btn magnetic" href="https://www.fiskalna.mk" target="_blank" rel="noopener" data-cursor="Open">Visit fiskalna.mk <span class="arr" aria-hidden="true">↗</span></a>
     </div>
-    <ul class="p-facts">
-      <li><b>What</b>Fast sales at the counter with barcode, shifts and Z reports. Invoices, stock and partners behind it.</li>
-      <li><b>Local</b>Fiscal printer support through a Windows desktop app, Macedonian interface, several branches.</li>
-      <li><b>Built with</b>Next.js 15, PostgreSQL, Prisma, NextAuth, Tauri.</li>
-    </ul>
+    <div class="win demo-f" data-cursor="Try" lang="mk">
+      <div class="win-bar"><i></i><i></i><i></i><span>fiskalna.mk / Каса 1</span><em class="live"><u></u>Смена отворена</em></div>
+      <div class="df-body">
+        <div class="df-grid"></div>
+        <div class="df-cart">
+          <div class="df-cart-head"><span>Кошничка</span><b class="df-count">0</b></div>
+          <ul class="df-lines"></ul>
+          <p class="df-empty">Допри артикл за да почнеш</p>
+          <div class="df-sum"><span>ДДВ</span><span class="df-vat">0,00 ден</span></div>
+          <div class="df-total"><span>Вкупно</span><b>0,00 ден</b></div>
+          <button class="df-pay" type="button" disabled>Плати</button>
+          <div class="df-slot" aria-hidden="true"><div class="df-receipt"></div></div>
+        </div>
+        <i class="df-ghost" aria-hidden="true"></i>
+      </div>
+      <div class="demo-foot"><span class="mono" lang="en">A working register. Tap products, then press the green button.</span></div>
+    </div>
   </div>
   <figure class="f-screen browser"><div class="browser-bar"><i></i><i></i><i></i><span>fiskalna.mk/pos</span></div><img src="assets/img/fiskalna-pos.webp" alt="fiskalna.mk point of sale screen with product grid, categories and a cart of six items" width="1920" height="1200" loading="lazy"></figure>
   <div class="f-pair">
@@ -155,6 +232,7 @@
 
 <!-- Deneyim -->
 <section class="xp" id="experience" data-tint="#08090a">
+  <span class="idx mono scramble">Client work / 2019 to now</span>
   <h2 class="big reveal-words">Seven years of client work.</h2>
   <div class="xp-list">
     <article class="xp-row">
@@ -219,11 +297,12 @@
 </main>
 
 <footer class="contact" id="contact">
+  <p class="kicker mono"><i class="dot"></i>Open to remote work<span class="sep">/</span>Skopje <time class="clock">--:--</time></p>
   <h2 aria-label="Let's build something.">
     <span class="line" aria-hidden="true"><span class="w-mask"><span>Let's build</span></span></span>
     <span class="line" aria-hidden="true"><span class="w-mask"><span class="accent">something.</span></span></span>
   </h2>
-  <a class="mail magnetic" href="mailto:dev.mesti@gmail.com">dev.mesti@gmail.com <span class="arr" aria-hidden="true">↗</span></a>
+  <a class="mail magnetic" href="mailto:dev.mesti@gmail.com" data-cursor="Write">dev.mesti@gmail.com <span class="arr" aria-hidden="true">↗</span></a>
   <div class="foot">
     <span>© 2026 Mustafa Esti. Skopje, North Macedonia.</span>
     <nav aria-label="Profiles">
@@ -236,6 +315,7 @@
 <script src="assets/js/gsap.min.js" defer></script>
 <script src="assets/js/ScrollTrigger.min.js" defer></script>
 <script src="assets/js/lenis.min.js" defer></script>
+<script src="assets/demos.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>
 </html>
